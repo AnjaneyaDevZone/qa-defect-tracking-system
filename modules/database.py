@@ -57,3 +57,28 @@ CREATE TABLE IF NOT EXISTS defects (
 conn.commit()
 
 print("Database and tables created successfully")
+
+# ==========================================
+# INSERT DEFAULT USERS
+# ==========================================
+
+try:
+    cursor.execute("""
+    INSERT INTO users (username, password, role)
+    VALUES ('admin', 'admin123', 'admin')
+    """)
+
+    cursor.execute("""
+    INSERT INTO users (username, password, role)
+    VALUES ('tester', 'tester123', 'tester')
+    """)
+
+    cursor.execute("""
+    INSERT INTO users (username, password, role)
+    VALUES ('developer', 'developer123', 'developer')
+    """)
+
+    conn.commit()
+
+except:
+    pass
