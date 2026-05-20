@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 import sqlite3
+from modules.dashboard import open_dashboard
 
 
 # ==========================================
@@ -31,6 +32,9 @@ def login():
             "Login Successful",
             f"Welcome {role}"
         )
+
+        app.destroy()
+        open_dashboard(role)
 
     else:
         messagebox.showerror(
